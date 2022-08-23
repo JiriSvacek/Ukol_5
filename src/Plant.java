@@ -8,8 +8,8 @@ public class Plant {
     private int frequencyOfWatering;
 
     public Plant(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) throws PlantException {
-        this.checkCondition("Počet dní na zavlažení musí být vetší jak 0", frequencyOfWatering <= 0);
-        this.checkCondition("Datum zálivky nesmí být menší jak datum vysazení rostliny", planted.isAfter(watering));
+        this.checkCondition(frequencyOfWatering <= 0, "Počet dní na zavlažení musí být vetší jak 0");
+        this.checkCondition(planted.isAfter(watering), "Datum zálivky nesmí být menší jak datum vysazení rostliny");
         this.name = name;
         this.notes = notes;
         this.planted = planted;
@@ -20,7 +20,7 @@ public class Plant {
     public Plant(String name,LocalDate planted, int frequencyOfWatering) throws PlantException {
         this(name, "", planted, LocalDate.now(), frequencyOfWatering);
     }
-    private void checkCondition(String error, boolean condition) throws PlantException {
+    private void checkCondition(boolean condition, String error) throws PlantException {
         if (condition) {
             throw new PlantException(error);
         }
