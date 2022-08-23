@@ -68,12 +68,14 @@ public class ListOfPlants {
         System.out.println("---------------");
     }
 
-    public void toFile(String filename) throws IOException {
-        FileWriter writer = new FileWriter(filename);
-        for (Plant plant: listOfPlants) {
-            writer.write(getInfo(plant) + System.lineSeparator());
+    public void toFile(String filename) throws PlantException {
+        try(FileWriter writer = new FileWriter(filename)) {
+            for (Plant plant : listOfPlants) {
+                writer.write(getInfo(plant) + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            throw new PlantException("Soubor nemohl být vytvořen" + e.getLocalizedMessage());
         }
-        writer.close();
     }
 
     private String getInfo(Plant plant) {

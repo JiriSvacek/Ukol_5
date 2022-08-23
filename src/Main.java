@@ -2,16 +2,20 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) throws PlantException, IOException {
-        Plant bla = new Plant("Ahoj", LocalDate.of(2022,8, 10), 8);
-        System.out.println(bla.getWateringInfo());
-        ListOfPlants seznam = new ListOfPlants();
-        seznam.addPlant(bla);
-        seznam.seeList();
-        seznam.addFromFile("src/kvetiny.txt");
-        seznam.seeList();
-        seznam.getWatering();
-        seznam.toFile("src/doslozky.txt");
+    public static void main(String[] args) {
+        try {
+            Plant bla = new Plant("Ahoj", LocalDate.of(2022, 8, 10), 8);
+            System.out.println(bla.getWateringInfo());
+            ListOfPlants seznam = new ListOfPlants();
+            seznam.addPlant(bla);
+            seznam.seeList();
+            seznam.addFromFile("src/kvetiny.txt");
+            seznam.seeList();
+            seznam.getWatering();
+            seznam.toFile("src/doslozky.txt");
+        } catch (PlantException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
 
         //ListOfPlants seznamBad = new ListOfPlants();
         //seznamBad.addFromFile("src/kvetiny-spatne-datum.txt");
