@@ -5,9 +5,9 @@ public class Plant {
     private String notes;
     private LocalDate planted;
     private LocalDate watering;
-    private Long frequencyOfWatering;
+    private int frequencyOfWatering;
 
-    public Plant(String name, String notes, LocalDate planted, LocalDate watering, Long frequencyOfWatering) throws PlantException {
+    public Plant(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) throws PlantException {
         this.checkCondition("Počet dní na zavlažení musí být vetší jak 0", frequencyOfWatering <= 0);
         this.checkCondition("Datum zálivky nesmí být menší jak datum vysazení rostliny", planted.isAfter(watering));
         this.name = name;
@@ -17,7 +17,7 @@ public class Plant {
         this.frequencyOfWatering = frequencyOfWatering;
     }
 
-    public Plant(String name,LocalDate planted, Long frequencyOfWatering) throws PlantException {
+    public Plant(String name,LocalDate planted, int frequencyOfWatering) throws PlantException {
         this(name, "", planted, LocalDate.now(), frequencyOfWatering);
     }
     private void checkCondition(String error, boolean condition) throws PlantException {
@@ -27,7 +27,7 @@ public class Plant {
     }
 
     public Plant(String name) throws PlantException {
-        this(name, LocalDate.now(), Long.valueOf(7));
+        this(name, LocalDate.now(), 7);
     }
 
     public String getWateringInfo() {
@@ -84,7 +84,7 @@ public class Plant {
         return frequencyOfWatering;
     }
 
-    public void setFrequencyOfWatering(long frequencyOfWatering) {
+    public void setFrequencyOfWatering(int frequencyOfWatering) {
         this.frequencyOfWatering = frequencyOfWatering;
     }
 }

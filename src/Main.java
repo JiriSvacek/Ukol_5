@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws PlantException, IOException {
-        Plant bla = new Plant("Ahoj", LocalDate.of(2022,8, 10), Long.valueOf(8));
+        Plant bla = new Plant("Ahoj", LocalDate.of(2022,8, 10), 8);
         System.out.println(bla.getWateringInfo());
         ListOfPlants seznam = new ListOfPlants();
         seznam.addPlant(bla);

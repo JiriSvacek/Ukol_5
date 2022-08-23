@@ -23,7 +23,7 @@ public class ListOfPlants {
     }
 
     public void addFromList(String filename) throws PlantException {
-        String line = "";
+        String line;
         try (Scanner scanner = new Scanner(new File(filename))) {
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
@@ -36,7 +36,7 @@ public class ListOfPlants {
 
                 LocalDate lastWatering = LocalDate.parse(lastWateringAsText);
                 LocalDate dateOfPlanting = LocalDate.parse(dateOfPlantingAsText);
-                Long frequency = Long.valueOf(frequencyAsText);
+                int frequency = Integer.parseInt(frequencyAsText);
 
                 Plant plant = new Plant(name, description, dateOfPlanting, lastWatering,frequency);
 
