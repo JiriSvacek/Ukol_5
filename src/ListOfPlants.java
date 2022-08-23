@@ -82,5 +82,9 @@ public class ListOfPlants {
         return plant.getName() + "\t" + plant.getNotes() + "\t" + plant.getFrequencyOfWatering()
                 + "\t" + plant.getPlanted() + "\t" + plant.getWatering();
     }
+
+    public ArrayList<Plant> getListOfPlants() {
+        return listOfPlants;
+    }
 }
 
