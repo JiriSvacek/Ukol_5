@@ -8,16 +8,16 @@ public class Main {
         ListOfPlants seznam = new ListOfPlants();
         seznam.addPlant(bla);
         seznam.seeList();
-        seznam.addFromList("src/kvetiny.txt");
+        seznam.addFromFile("src/kvetiny.txt");
         seznam.seeList();
         seznam.getWatering();
         seznam.toFile("src/doslozky.txt");
 
         //ListOfPlants seznamBad = new ListOfPlants();
-        //seznamBad.addFromList("src/kvetiny-spatne-datum.txt");
+        //seznamBad.addFromFile("src/kvetiny-spatne-datum.txt");
         //seznamBad.seeList();
         //ListOfPlants seznamBad2 = new ListOfPlants();
-        //seznamBad2.addFromList("src/kvetiny-spatne-frekvence.txt");
+        //seznamBad2.addFromFile("src/kvetiny-spatne-frekvence.txt");
         //seznamBad2.seeList();
     }
 }

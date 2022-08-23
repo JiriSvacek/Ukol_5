@@ -22,7 +22,7 @@ public class ListOfPlants {
         listOfPlants.remove(plant);
     }
 
-    public void addFromList(String filename) throws PlantException {
+    public void addFromFile(String filename) throws PlantException {
         String line;
         try (Scanner scanner = new Scanner(new File(filename))) {
             while (scanner.hasNextLine()) {
