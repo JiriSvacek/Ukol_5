@@ -71,9 +71,14 @@ public class ListOfPlants {
     public void toFile(String filename) throws IOException {
         FileWriter writer = new FileWriter(filename);
         for (Plant plant: listOfPlants) {
-            writer.write(plant.getInfo() + System.lineSeparator());
+            writer.write(getInfo(plant) + System.lineSeparator());
         }
         writer.close();
+    }
+
+    private String getInfo(Plant plant) {
+        return plant.getName() + "\t" + plant.getNotes() + "\t" + plant.getFrequencyOfWatering()
+                + "\t" + plant.getPlanted() + "\t" + plant.getWatering();
     }
 }
 

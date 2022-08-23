@@ -35,13 +35,7 @@ public class Plant {
                 ", \ndalší závlaha je doporučena: " + this.recommendedWatering();
     }
 
-    public String getInfo() {
-        return this.getName() + "\t" + this.getNotes() + "\t" + this.getFrequencyOfWatering()
-                + "\t" + this.getPlanted() + "\t" + this.getWatering();
-    }
-
-
-    private String recommendedWatering() {
+    public String recommendedWatering() {
         return String.valueOf(this.watering.plusDays(this.frequencyOfWatering));
     }
 
